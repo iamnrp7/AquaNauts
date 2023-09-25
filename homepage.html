@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Water Homepage</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+
+    <style>
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #007bff, #000, #fff, #000, #007bff);
+    background-size: 500% 100%;
+    animation: gradientAnimation 50s linear infinite; /* Changed duration to 50s (10s per transition) */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    10% {
+        background-position: 100% 0;
+    }
+    20% {
+        background-position: 200% 0;
+    }
+    30% {
+        background-position: 300% 0;
+    }
+    40% {
+        background-position: 400% 0;
+    }
+    50% {
+        background-position: 500% 0;
+    }
+    60% {
+        background-position: 600% 0;
+    }
+    70% {
+        background-position: 700% 0;
+    }
+    80% {
+        background-position: 800% 0;
+    }
+    90% {
+        background-position: 900% 0;
+    }
+    100% {
+        background-position: 1000% 0;
+    }
+}
+
+
+        /* 3D effect for the header */
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    transform: perspective(100px) rotateX(5deg);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+/* Classy 3D effect for the "Save Water" heading */
+h1 {
+    font-size: 48px; /* Increased font size for the heading */
+    margin: 0;
+    padding: 40px; /* Increased padding to make the white box bigger */
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+/* Add a subtle 3D text-shadow */
+h1::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: rgba(0, 0, 0, 0.2); /* Shadow color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjust shadow values as needed */
+    z-index: -1;
+}
+
+/* Add a hover effect for a slight animation */
+h1:hover::before {
+    transform: translate(2px, 2px); /* Slight movement on hover */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Adjust hover shadow values */
+}
+
+
+
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 40px; /* Increase padding for more height */
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+        h2 {
+            font-size: 24px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .feature-icon {
+            font-size: 36px;
+            margin-right: 20px;
+        }
+        .feature-description {
+            flex: 1;
+        }
+        .water-tracker {
+            background-color: #66ccff;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .water-tracker h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .water-tracker p {
+            font-size: 16px;
+        }
+        .tracker-form {
+            display: flex;
+            align-items: center;
+        }
+        .tracker-form label {
+            margin-right: 10px;
+        }
+        .tracker-form input[type="number"] {
+            width: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .tracker-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        /* Center align feature descriptions and buttons */
+.feature-description {
+    flex: 1;
+    text-align: center; /* Center-align the feature description */
+}
+
+.feature button {
+    margin: 0 auto; /* Center the button horizontally */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Save Water</h1>
+        <p>Together, let's conserve our most precious resource.</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Why Save Water?</h2>
+            <p>
+                Water is essential for life and the environment. By conserving water, we can protect ecosystems, reduce energy consumption, and ensure a sustainable future for all.
+            </p>
+        </section>
+
+        <section>
+           <!-- Add a button to the homepage -->
+<section>
+    <div class="feature">
+        <button onclick="window.location.href='watertrack.html';">
+            <div class="feature-icon">🚿</div>
+            <div class="feature-description">
+                <h3>Water Consumption Tracker</h3>
+                <p>Monitor and track your daily water consumption to help you make more conscious choices.</p>
+            </div>
+        </button>
+    </div>
+    
+    <div class="feature">
+        <button onclick="window.location.href='crowdwork.html';">
+            <div class="feature-icon">🌊</div>
+            <div class="feature-description">
+                <h3>Water Saving Tips</h3>
+                <p>Share your water-saving tips and strategies.</p>
+            </div>
+        </button>
+    </div>
+    
+    <!-- Add more features as needed -->
+    
+    <div class="feature">
+        <button onclick="window.location.href='rainwater.html';">
+            <div class="feature-icon">☔</div>
+            <div class="feature-description">
+                <h3>Rainwater Harvesting Planner</h3>
+                <p>Plan and design rainwater harvesting systems based on their location, roof area, and local rainfall patterns.</p>
+            </div>
+        </button>
+    </div>
+    <div class="feature">
+        <button onclick="window.location.href='school.html';">
+            <div class="feature-icon">🏫</div>
+            <div class="feature-description">
+                <h3> Water Conservation Challenge</h3>
+                <p> To compete in water conservation challenges and learn about the importance of saving water.</p>
+            </div>
+        </button>
+    </div>
+         
+       
+    
+
+
+           
+        </section>
+
+        
+    </div>
+
+   
+</body>
+</html>
