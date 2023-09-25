@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Consumption Tracker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+      body {
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Hide the main body's scrollbar */
+            margin: 0;
+            padding: 0;
+        }
+
+        .scrolling-area {
+            height: 100vh; /* Full viewport height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            background: linear-gradient(45deg, #ff99cc, #66ccff, #99ffcc, #ffcc66);
+            background-size: 400% 400%;
+            background-position: 0% 50%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+        
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* Add a background color to see the container */
+        }
+
+
+        /* Additional styles to make the container scrollable */
+        .scrollable-container {
+            max-height: 80vh; /* Adjust the maximum height as needed */
+            overflow-y: auto;
+        }
+
+        h1 {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-right: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-group label {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+
+        .consumption-icon {
+            font-size: 48px;
+            margin-right: 10px;
+        }
+
+        .consumption-label {
+            font-size: 20px;
+        }
+
+        .consumption-total {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .grand-total {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scrolling-area">
+        <div class="container">
+            <h1><i class="material-icons icon">local_drink</i> Water Consumption Tracker</h1>
+            
+            <!-- Form for tracking drinking water -->
+            <div class="form-group">
+                <h2><i class="material-icons consumption-icon">local_drink</i> Drinking Water</h2>
+                <label for="drinkAmount" class="consumption-label">Enter the amount of drinking water consumed (in milliliters):</label>
+                <input type="number" id="drinkAmount" placeholder="e.g., 250" />
+                <button onclick="trackConsumption('drink')">Add Drinking Water</button>
+                <p class="consumption-total">Total Drinking Water Consumed Today: <span id="totalDrinkingWater">0</span> ml</p>
+            </div>
+
+            <!-- Form for tracking bathing water -->
+            <div class="form-group">
+                <h2><i class="material-icons consumption-icon">bathtub</i> Bathing Water</h2>
+                <label for="bathAmount" class="consumption-label">Enter the amount of water used for bathing (in liters):</label>
+                <input type="number" id="bathAmount" placeholder="e.g., 20" />
+                <button onclick="trackConsumption('bath')">Add Bathing Water</button>
+                <p class="consumption-total">Total Bathing Water Used Today: <span id="totalBathingWater">0</span> liters</p>
+            </div>
+
+            <!-- Form for tracking cooking water -->
+            <div class="form-group">
+                <h2><i class="material-icons consumption-icon">restaurant</i> Cooking Water</h2>
+                <label for="cookAmount" class="consumption-label">Enter the amount of water used for cooking (in milliliters):</label>
+                <input type="number" id="cookAmount" placeholder="e.g., 500" />
+                <button onclick="trackConsumption('cook')">Add Cooking Water</button>
+                <p class="consumption-total">Total Cooking Water Used Today: <span id="totalCookingWater">0</span> ml</p>
+            </div>
+
+            <div class="grand-total">
+                Grand Total: <span id="totalWaterConsumed">0</span> ml
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let totalWaterConsumed = 0;
+
+        function trackConsumption(type) {
+            const amountInput = document.getElementById(`${type}Amount`);
+            const amount = parseFloat(amountInput.value);
+
+            if (!isNaN(amount)) {
+                totalWaterConsumed += amount;
+                document.getElementById("totalWaterConsumed").textContent = totalWaterConsumed + " ml";
+                amountInput.value = ""; // Clear input field
+            } else {
+                alert("Please enter a valid number for water consumption.");
+            }
+        }
+    </script>
+</body>
+</html>
