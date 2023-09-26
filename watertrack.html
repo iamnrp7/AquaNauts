@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Consumption Tracker</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
       body {
@@ -35,11 +36,17 @@
         }
 
         .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff; /* Add a background color to see the container */
-        }
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: transparent; /* Set the background color to transparent */
+    position: relative; /* Add this to enable z-index */
+}
+.container h1,
+.container .form-group,
+.container p {
+    color: #000; /* Set the text color to black */
+}
 
 
         /* Additional styles to make the container scrollable */
