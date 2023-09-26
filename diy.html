@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-8sGbUcgcDg9tIhAKBz5Sf2TpppLpy8n0U9t8bPDf5Nxi1a2K7HTzts0KoWQb1JxEl" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/39bfd518bd.js" crossorigin="anonymous"></script>
     <title>My Eco-Friendly DIY Page</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            animation: gradientAnimation 10s infinite alternate;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background: linear-gradient(to right, #42a5f5, #ff8a65);
+            }
+            100% {
+                background: linear-gradient(to right, #ff8a65, #42a5f5);
+            }
         }
 
         header {
-            background-color: #42a5f5;
             color: #fff;
             text-align: center;
             padding: 20px;
@@ -16,6 +31,10 @@
 
         h1 {
             font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
         }
 
         p {
@@ -34,15 +53,40 @@
         .button:hover {
             background-color: #45a049;
         }
+        .project {
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>Welcome to My Eco-Friendly DIY Page</h1>
     </header>
-    <main>
-        <p>Here you can find information on various eco-friendly DIY projects, including water-saving devices, recycling tips, and more.</p>
-        <button class="button">Learn More</button>
+    <div class="container">
+        <main>
+            <section class="project">
+                <h2><i class="fas fa-tint"></i> Water-Saving Devices</h2>
+                <p>Learn how to create water-saving devices and systems to conserve this precious resource:</p>
+                <ul>
+                    <li><strong>Rain Barrel System:</strong> Harvest rainwater for outdoor use by creating a rain barrel system.</li>
+                    <li><strong>Low-Flow Faucets:</strong> Install low-flow faucets to reduce water usage in your home.</li>
+                </ul>
+                <button class="button">Explore Water-Saving Projects</button>
+            </section>
+            
+            <section class="project">
+                <h2><i class="fas fa-recycle"></i> Recycling Tips</h2>
+                <p>Discover eco-friendly recycling tips and reduce waste in your daily life:</p>
+                <ul>
+                    <li><strong>Recycling Bins:</strong> Use separate bins for paper, plastic, glass, and compost to make recycling easier.</li>
+                    <li><strong>Upcycling Projects:</strong> Repurpose old items into new, useful creations.</li>
+                </ul>
+                <button class="button">Get Recycling Tips</button>
+            </section>
+            
     </main>
 </body>
 </html>
