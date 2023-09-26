@@ -1,32 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Rainwater Harvesting Planner</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <style>
+        /* Add animations and 3D effects to water icons */
+.water-icons img {
+    width: 100px; /* Adjust the size as needed */
+    transition: transform 0.3s ease-in-out;
+}
+
+.water-icons img:hover {
+    transform: scale(1.1) rotate(10deg);
+}
+
+    </style>
     <header>
         <h1>Rainwater Harvesting Planner</h1>
     </header>
     <main>
-        <section id="location">
-            <!-- Location input fields here -->
+        <section id="input-section">
+            <h2>Enter Details</h2>
+            <label for="roofArea">Roof Area (in square feet):</label>
+            <input type="number" id="roofArea" placeholder="Enter roof area">
+            <br>
+            <label for="rainfall">Average Annual Rainfall (in inches):</label>
+            <input type="number" id="rainfall" placeholder="Enter rainfall">
+            <br>
+            <button onclick="calculateHarvesting()">Calculate</button>
         </section>
-        <section id="roof">
-            <!-- Roof area input fields here -->
+        <section id="output-section">
+            <h2>Results</h2>
+            <p>Estimated Harvested Water: <span id="harvestedWater">0 gallons</span></p>
         </section>
-        <section id="rainfall">
-            <!-- Rainfall pattern input fields here -->
+    
+        <!-- Add water-related icons and animations -->
+        <section id="images-section">
+            <h2>Rainwater Harvesting Images</h2>
+            <div class="water-icons">
+                <img src="rainwater_harvesting.jpg" alt="Rainwater Harvesting System">
+                <img src="rain_barrel.jpg" alt="Rain Barrel">
+            </div>
         </section>
-        <section id="results">
-            <!-- Display results here -->
+        
+        <!-- Rain Barrels Technique -->
+        <section id="rain-barrels">
+            <h2>Rain Barrels</h2>
+            <div class="water-icons">
+                <img src="rain_barrel_icon.png" alt="Rain Barrel Icon">
+            </div>
+            <p>Rain barrels collect rainwater from your roof and store it for various uses.</p>
+            <label for="barrelCapacity">Barrel Capacity (in gallons):</label>
+            <input type="number" id="barrelCapacity" placeholder="Enter barrel capacity">
+            <br>
+            <button onclick="calculateRainBarrels()">Calculate</button>
+            <p>Estimated Water Collected: <span id="rainBarrelWater">0 gallons</span></p>
+        </section>
+        
+        <!-- Rainwater Tanks Technique -->
+        <section id="rainwater-tanks">
+            <h2>Rainwater Tanks</h2>
+            <div class="water-icons">
+                <img src="rainwater_tank_icon.png" alt="Rainwater Tank Icon">
+            </div>
+            <p>Rainwater tanks store harvested rainwater in larger containers for various uses.</p>
+            <label for="tankCapacity">Tank Capacity (in gallons):</label>
+            <input type="number" id="tankCapacity" placeholder="Enter tank capacity">
+            <br>
+            <button onclick="calculateRainwaterTanks()">Calculate</button>
+            <p>Estimated Water Collected: <span id="tankWater">0 gallons</span></p>
+        </section>
+        
+        <!-- In-Ground Storage Technique -->
+        <section id="in-ground-storage">
+            <h2>In-Ground Storage</h2>
+            <div class="water-icons">
+                <img src="inground_storage_icon.png" alt="In-Ground Storage Icon">
+            </div>
+            <p>In-ground storage systems collect rainwater underground for irrigation or other purposes.</p>
+            <label for="undergroundCapacity">Underground Capacity (in gallons):</label>
+            <input type="number" id="undergroundCapacity" placeholder="Enter underground capacity">
+            <br>
+            <button onclick="calculateInGroundStorage()">Calculate</button>
+            <p>Estimated Water Collected: <span id="undergroundWater">0 gallons</span></p>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2023 Rainwater Harvesting Planner</p>
-    </footer>
     <script src="script.js"></script>
 </body>
 </html>
