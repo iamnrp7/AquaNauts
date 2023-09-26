@@ -36,6 +36,15 @@ header h1 {
     font-size: 18px;
 }
 
+/* Add animations and 3D effects to water icons */
+.water-icons img {
+    width: 100px; /* Adjust the size as needed */
+    transition: transform 0.3s ease-in-out;
+}
+
+.water-icons img:hover {
+    transform: scale(1.1) rotate(10deg);
+}
 
 /* Style the water drop icon */
 header img {
