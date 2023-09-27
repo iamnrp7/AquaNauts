@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Water Availability in India</title>
     <style>
         /* Base styles for the map container */
+        body {
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background: linear-gradient(180deg, #2E7D32, #C8E6C9); /* Gradient background */
+            font-family: Arial, sans-serif; /* Specify a font for the entire page */
+        }
+
         #map {
             width: 100%;
             height: 500px;
@@ -32,6 +41,18 @@
             transform: translate(-50%, -50%) scale(1.2); /* Add 3D effect on hover */
         }
 
+        /* Container for river information */
+        .river-info-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 300px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: none;
+        }
+
         /* Label styles */
         .label {
             position: absolute;
@@ -41,47 +62,115 @@
             color: #333;
             font-size: 14px;
         }
-
-        /* Pollution percentage styles */
-        .pollution-label {
-            position: absolute;
-            top: 75%;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #FF5722;
-            font-size: 12px;
-        }
     </style>
 </head>
 <body>
     <div id="map">
         <!-- Water sources (randomly chosen locations) -->
-        <div class="icon" style="top: 40%; left: 30%;" title="River Ganges">
+        <div class="icon" style="top: 40%; left: 30%;" title="River Ganges" onclick="showRiverInfo('Ganges')">
             <span class="label">River Ganges</span>
-            <span class="pollution-label">Pollution: 10%</span>
         </div>
-        <div class="icon" style="top: 60%; left: 50%;" title="Lake Dal">
+        <div class="icon" style="top: 60%; left: 50%;" title="Lake Dal" onclick="showRiverInfo('Lake Dal')">
             <span class="label">Lake Dal</span>
-            <span class="pollution-label">Pollution: 5%</span>
         </div>
-        <div class="icon" style="top: 20%; left: 70%;" title="Bhakra Dam">
+        <div class="icon" style="top: 20%; left: 70%;" title="Bhakra Dam" onclick="showRiverInfo('Bhakra Dam')">
             <span class="label">Bhakra Dam</span>
-            <span class="pollution-label">Pollution: 2%</span>
         </div>
-
-        <!-- Additional rivers -->
-        <div class="icon" style="top: 50%; left: 10%;" title="Yamuna River">
+        <div class="icon" style="top: 50%; left: 10%;" title="Yamuna River" onclick="showRiverInfo('Yamuna')">
             <span class="label">Yamuna River</span>
-            <span class="pollution-label">Pollution: 15%</span>
         </div>
-        <div class="icon" style="top: 70%; left: 80%;" title="Brahmaputra River">
+        <div class="icon" style="top: 70%; left: 80%;" title="Brahmaputra River" onclick="showRiverInfo('Brahmaputra')">
             <span class="label">Brahmaputra River</span>
-            <span class="pollution-label">Pollution: 8%</span>
         </div>
-        <div class="icon" style="top: 10%; left: 40%;" title="Godavari River">
+        <div class="icon" style="top: 10%; left: 40%;" title="Godavari River" onclick="showRiverInfo('Godavari')">
             <span class="label">Godavari River</span>
-            <span class="pollution-label">Pollution: 20%</span>
+        </div>
+        <div class="icon" style="top: 30%; left: 60%;" title="Krishna River" onclick="showRiverInfo('Krishna')">
+            <span class="label">Krishna River</span>
+        </div>
+        <div class="icon" style="top: 80%; left: 30%;" title="Narmada River" onclick="showRiverInfo('Narmada')">
+            <span class="label">Narmada River</span>
+        </div>
+        <div class="icon" style="top: 10%; left: 90%;" title="Cauvery River" onclick="showRiverInfo('Cauvery')">
+            <span class="label">Cauvery River</span>
+        </div>
+        <div class="icon" style="top: 70%; left: 20%;" title="Bhagirathi River" onclick="showRiverInfo('Bhagirathi')">
+            <span class="label">Bhagirathi River</span>
         </div>
     </div>
+
+    <!-- River information containers -->
+    <div class="river-info-container" id="ganges-info">
+        <h2>River Ganges</h2>
+        <p><strong>Pollution Level:</strong> The Ganges is one of the most polluted rivers in the world. It faces contamination from sewage, industrial effluents, and agricultural runoff.</p>
+        <p><strong>Conservation Efforts:</strong> The Indian government launched the "Namami Gange" program to clean and rejuvenate the Ganges. It involves sewage treatment plants, river surface cleaning, afforestation, and public awareness campaigns.</p>
+    </div>
+
+    <div class="river-info-container" id="lakedal-info">
+        <h2>Lake Dal</h2>
+        <p><strong>Pollution Level:</strong> Lake Dal faces pollution from various sources including agricultural runoff and human settlements.</p>
+        <p><strong>Conservation Efforts:</strong> Conservation efforts include the removal of encroachments, water quality monitoring, and community awareness programs.</p>
+    </div>
+
+    <div class="river-info-container" id="bhakradam-info">
+        <h2>Bhakra Dam</h2>
+        <p><strong>Pollution Level:</strong> Bhakra Dam is relatively less polluted.</p>
+        <p><strong>Conservation Efforts:</strong> Conservation efforts focus on reservoir management and sustainable water use.</p>
+    </div>
+
+    <div class="river-info-container" id="yamuna-info">
+        <h2>Yamuna River</h2>
+        <p><strong>Pollution Level:</strong> The Yamuna is severely polluted, primarily due to the discharge of untreated sewage and industrial waste.</p>
+        <p><strong>Conservation Efforts:</strong> The "Yamuna Action Plan" aims to reduce pollution levels by improving sewage treatment, controlling industrial pollution, and promoting riverfront development.</p>
+    </div>
+
+    <div class="river-info-container" id="brahmaputra-info">
+        <h2>Brahmaputra River</h2>
+        <p><strong>Pollution Level:</strong> The Brahmaputra faces pollution from various sources, including agriculture, urbanization, and deforestation.</p>
+        <p><strong>Conservation Efforts:</strong> Initiatives like afforestation, riverbank erosion control, and sustainable agriculture practices aim to protect the Brahmaputra and its basin.</p>
+    </div>
+
+    <div class="river-info-container" id="godavari-info">
+        <h2>Godavari River</h2>
+        <p><strong>Pollution Level:</strong> The Godavari is polluted by industrial effluents, sewage, and agricultural runoff.</p>
+        <p><strong>Conservation Efforts:</strong> River rejuvenation programs and the construction of sewage treatment plants are underway to reduce pollution in the Godavari.</p>
+    </div>
+
+    <div class="river-info-container" id="krishna-info">
+        <h2>Krishna River</h2>
+        <p><strong>Pollution Level:</strong> The Krishna river suffers from pollution due to agricultural runoff, industrial discharges, and deforestation.</p>
+        <p><strong>Conservation Efforts:</strong> Watershed management projects, river cleaning drives, and pollution control measures are being implemented to safeguard the Krishna.</p>
+    </div>
+
+    <div class="river-info-container" id="narmada-info">
+        <h2>Narmada River</h2>
+        <p><strong>Pollution Level:</strong> The Narmada is relatively less polluted but still faces threats from sand mining, deforestation, and industrialization.</p>
+        <p><strong>Conservation Efforts:</strong> The Narmada Conservation Program focuses on afforestation, wildlife conservation, and sustainable development in the Narmada basin.</p>
+    </div>
+
+    <div class="river-info-container" id="cauvery-info">
+        <h2>Cauvery River</h2>
+        <p><strong>Pollution Level:</strong> The Cauvery river is polluted due to deforestation, sand mining, and agricultural runoff.</p>
+        <p><strong>Conservation Efforts:</strong> Reforestation, water management, and conservation projects aim to protect the Cauvery's ecosystem.</p>
+    </div>
+
+    <div class="river-info-container" id="bhagirathi-info">
+        <h2>Bhagirathi River</h2>
+        <p><strong>Pollution Level:</strong> Pollution levels in the Bhagirathi are similar to the Ganges and arise from various sources.</p>
+        <p><strong>Conservation Efforts:</strong> The "Namami Gange" program, which focuses on cleaning and rejuvenating the Ganges, extends to the Bhagirathi as well. Efforts include sewage treatment plants, river surface cleaning, afforestation, and public awareness campaigns.</p>
+    </div>
+
+    <script>
+        // JavaScript function to show river information when an icon is clicked
+        function showRiverInfo(riverName) {
+            // Hide all river info containers
+            document.querySelectorAll('.river-info-container').forEach(function(container) {
+                container.style.display = 'none';
+            });
+
+            // Show the selected river info container
+            document.getElementById(riverName.toLowerCase() + '-info').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
