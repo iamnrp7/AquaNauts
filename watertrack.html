@@ -7,59 +7,43 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
-      body {
+         body {
             font-family: Arial, sans-serif;
-            overflow: hidden; /* Hide the main body's scrollbar */
+            
             margin: 0;
             padding: 0;
-        }
+            overflow: scroll; /* Prevent scroll bars due to the video size */
+         }
 
-        .scrolling-area {
-            height: 100vh; /* Full viewport height */
-            overflow-y: auto; /* Enable vertical scrolling */
-            background: linear-gradient(45deg, #ff99cc, #66ccff, #99ffcc, #ffcc66);
-            background-size: 400% 400%;
-            background-position: 0% 50%;
-            animation: gradientAnimation 10s ease infinite;
-        }
-        
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: transparent; /* Set the background color to transparent */
-    position: relative; /* Add this to enable z-index */
+#bg-video {
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* Maintain aspect ratio and cover the entire viewport */
+    z-index: -12; /* Place it behind other content */
 }
-.container h1,
-.container .form-group,
-.container p {
-    color: #000; /* Set the text color to black */
-}
-
-
-        /* Additional styles to make the container scrollable */
-        .scrollable-container {
-            max-height: 80vh; /* Adjust the maximum height as needed */
-            overflow-y: auto;
+        header {
+            background-image: url('headerbackground.jpg'); /* Add the image URL here */
+    background-size: cover; /* Adjust the background image size as needed */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
         h1 {
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 20px;
         }
 
         .icon {
@@ -68,14 +52,16 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+            background-color: #fff;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
+
         .form-group label {
             display: block;
+            background-color: #f6f9fc;
             font-size: 20px;
             margin-bottom: 10px;
         }
@@ -119,44 +105,55 @@
             font-weight: bold;
             text-align: center;
             margin-top: 20px;
+            background-color: #f6f9fc;
+
+        }
+        .container{
+            background-image: url('headerbackground.jpg'); /* Add the image URL here */
+    background-size: cover; /* Adjust the background image size as needed */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+           
         }
     </style>
 </head>
 <body>
-    <div class="scrolling-area">
-        <div class="container">
-            <h1><i class="material-icons icon">local_drink</i> Water Consumption Tracker</h1>
-            
-            <!-- Form for tracking drinking water -->
-            <div class="form-group">
-                <h2><i class="material-icons consumption-icon">local_drink</i> Drinking Water</h2>
-                <label for="drinkAmount" class="consumption-label">Enter the amount of drinking water consumed (in milliliters):</label>
-                <input type="number" id="drinkAmount" placeholder="e.g., 250" />
-                <button onclick="trackConsumption('drink')">Add Drinking Water</button>
-                <p class="consumption-total">Total Drinking Water Consumed Today: <span id="totalDrinkingWater">0</span> ml</p>
-            </div>
+    <div class="container">
+        
+        <h1><i class="material-icons icon">local_drink</i> Water Consumption Tracker</h1>
+    </div>
+        
+        <!-- Form for tracking drinking water -->
+        <div class="form-group">
+            <h2><i class="material-icons consumption-icon">local_drink</i> Drinking Water</h2>
+            <label for="drinkAmount" class="consumption-label">Enter the amount of drinking water consumed (in milliliters):</label>
+            <input type="number" id="drinkAmount" placeholder="e.g., 250" />
+            <button onclick="trackConsumption('drink')">Add Drinking Water</button>
+            <p class="consumption-total">Total Drinking Water Consumed Today: <span id="totalDrinkingWater">0</span> ml</p>
+        </div>
 
-            <!-- Form for tracking bathing water -->
-            <div class="form-group">
-                <h2><i class="material-icons consumption-icon">bathtub</i> Bathing Water</h2>
-                <label for="bathAmount" class="consumption-label">Enter the amount of water used for bathing (in liters):</label>
-                <input type="number" id="bathAmount" placeholder="e.g., 20" />
-                <button onclick="trackConsumption('bath')">Add Bathing Water</button>
-                <p class="consumption-total">Total Bathing Water Used Today: <span id="totalBathingWater">0</span> liters</p>
-            </div>
+        <!-- Form for tracking bathing water -->
+        <div class="form-group">
+            <h2><i class="material-icons consumption-icon">bathtub</i> Bathing Water</h2>
+            <label for="bathAmount" class="consumption-label">Enter the amount of water used for bathing (in liters):</label>
+            <input type="number" id="bathAmount" placeholder="e.g., 20" />
+            <button onclick="trackConsumption('bath')">Add Bathing Water</button>
+            <p class="consumption-total">Total Bathing Water Used Today: <span id="totalBathingWater">0</span> liters</p>
+        </div>
 
-            <!-- Form for tracking cooking water -->
-            <div class="form-group">
-                <h2><i class="material-icons consumption-icon">restaurant</i> Cooking Water</h2>
-                <label for="cookAmount" class="consumption-label">Enter the amount of water used for cooking (in milliliters):</label>
-                <input type="number" id="cookAmount" placeholder="e.g., 500" />
-                <button onclick="trackConsumption('cook')">Add Cooking Water</button>
-                <p class="consumption-total">Total Cooking Water Used Today: <span id="totalCookingWater">0</span> ml</p>
-            </div>
+        <!-- Form for tracking cooking water -->
+        <div class="form-group">
+            <h2><i class="material-icons consumption-icon">restaurant</i> Cooking Water</h2>
+            <label for="cookAmount" class="consumption-label">Enter the amount of water used for cooking (in milliliters):</label>
+            <input type="number" id="cookAmount" placeholder="e.g., 500" />
+            <button onclick="trackConsumption('cook')">Add Cooking Water</button>
+            <p class="consumption-total">Total Cooking Water Used Today: <span id="totalCookingWater">0</span> ml</p>
+        </div>
 
-            <div class="grand-total">
-                Grand Total: <span id="totalWaterConsumed">0</span> ml
-            </div>
+        <div class="grand-total">
+            Grand Total: <span id="totalWaterConsumed">0</span> ml
         </div>
     </div>
 
@@ -176,5 +173,11 @@
             }
         }
     </script>
+     <video autoplay muted loop id="bg-video">
+        <source src="videobackground2.mp4" type="video/mp4">
+        <!-- Include additional source elements for different formats if needed -->
+        Your browser does not support the video tag.
+    </video>
 </body>
 </html>
+
