@@ -16,6 +16,15 @@
             margin: 0;
             padding: 0;
         }
+        #bg-video {
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* Maintain aspect ratio and cover the entire viewport */
+    z-index: -12; /* Place it behind other content */
+}
 
         body {
             font-family: Arial, sans-serif;
@@ -70,6 +79,13 @@
             font-size: 16px;
             line-height: 1.5;
         }
+        .button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -78,27 +94,28 @@
         <p>Ask questions and gain insights from water conservation experts.</p>
     </header>
     <div class="qna">
-    <h2>Live Q&A Session <i class="fas fa-circle live-icon"></i></h2>
+    <h1>Live Q&A Session <i class="fas fa-circle live-icon"></i>Meet Our Experts</h1>
+
+    <p>Learn from professionals in the field of water conservation.</p>
     <p>Join us for a live Q&A session with our experts. Stay tuned for upcoming events.</p>
+    <a href="livelogin.html" class="button">Login</a>
+
 </div>
 
 
-    <div class="container">
-        <div class="experts">
-            <h1>Meet Our Experts</h1>
-            <p>Learn from professionals in the field of water conservation.</p>
-            <!-- You can add information about your experts here -->
-        </div>
-
-        <div class="qna">
-            <h2>Live Q&A Session</h2>
-            <p>Join us for a live Q&A session with our experts. Stay tuned for upcoming events.</p>
-        </div>
+        
 
         <div class="qna">
             <h2>Recorded Sessions</h2>
             <p>Missed a live session? Don't worry! Watch our recorded Q&A sessions here.</p>
         </div>
     </div>
+    <section>
+        <video autoplay muted loop id="bg-video">
+            <source src="videobackground2.mp4" type="video/mp4">
+            <!-- Include additional source elements for different formats if needed -->
+            Your browser does not support the video tag.
+        </video>
+    </section>
 </body>
 </html>
