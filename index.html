@@ -3,96 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="doodle.css">
     <title>Save Water Homepage</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(90deg, #007bff, #000, #fff, #000, #007bff);
-            background-size: 500% 100%;
-            animation: gradientAnimation 50s linear infinite; /* Changed duration to 50s (10s per transition) */
-        }
+       body {
+    margin: 0;
+    padding: 0;
+    overflow: scroll; /* Prevent scroll bars due to the video size */
+}
 
-        @keyframes gradientAnimation {
-            0% {
-                background-position: 0 0;
-            }
-            10% {
-                background-position: 100% 0;
-            }
-            20% {
-                background-position: 200% 0;
-            }
-            30% {
-                background-position: 300% 0;
-            }
-            40% {
-                background-position: 400% 0;
-            }
-            50% {
-                background-position: 500% 0;
-            }
-            60% {
-                background-position: 600% 0;
-            }
-            70% {
-                background-position: 700% 0;
-            }
-            80% {
-                background-position: 800% 0;
-            }
-            90% {
-                background-position: 900% 0;
-            }
-            100% {
-                background-position: 1000% 0;
-            }
-        }
+#bg-video {
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* Maintain aspect ratio and cover the entire viewport */
+    z-index: -12; /* Place it behind other content */
+}
 
         /* 3D effect for the header */
         header {
-            background-color: #007bff;
+            background-image: url('headerbackground.jpg'); /* Add the image URL here */
+    background-size: cover; /* Adjust the background image size as needed */
             color: #fff;
             padding: 20px;
             text-align: center;
-            transform: perspective(100px) rotateX(5deg);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
         /* Classy 3D effect for the "Save Water" heading */
         h1 {
-            font-size: 48px; /* Increased font size for the heading */
+            font-size: 48px;
             margin: 0;
-            padding: 40px; /* Increased padding to make the white box bigger */
-            background-color: #007bff;
+            padding: 1px;
+            background-image: url('headerbackground.jpg'); /* Add the image URL here */
+    background-size: cover; /* Adjust the background image size as needed */
             color: #fff;
             text-align: center;
             position: relative;
         }
 
-        /* Add a subtle 3D text-shadow */
-        h1::before {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: rgba(0, 0, 0, 0.2); /* Shadow color */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adjust shadow values as needed */
-            z-index: -1;
-        }
+       
 
-        /* Add a hover effect for a slight animation */
-        h1:hover::before {
-            transform: translate(2px, 2px); /* Slight movement on hover */
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Adjust hover shadow values */
-        }
-
+       
         header {
-            background-color: #007bff;
+            background-image: url('headerbackground.jpg'); /* Add the image URL here */
+    background-size: cover; /* Adjust the background image size as needed */
             color: #fff;
             padding: 20px;
             text-align: center;
@@ -103,13 +62,36 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 20px auto;
-            padding: 40px; /* Increase padding for more height */
-            background-color: #fff;
+            padding: 40px;
+            background-image: url('backgroundhomepage2.jpg'); /* Add the image URL here */
+    background-size: cover; /* Adjust the background image size as needed */
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        /* Add this CSS for the background animation */
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #000, #fff, #000, #007bff);
+    background-size: 500% 100%;
+    animation: gradientAnimation 50s linear infinite;
+}
+
+/* Adjust the styles for the doodle emoji */
+.doodle-emoji {
+    font-size: 36px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 
         h2 {
             font-size: 24px;
@@ -121,14 +103,16 @@
         }
 
         .feature-container {
+            
+            
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            gap: 20px; /* Adjust the gap between features as needed */
+            gap: 20px;
         }
 
         .feature {
-            flex: 0 0 calc(33.3333% - 20px); /* Adjust the width of each feature item */
+            flex: 0 0 calc(33.3333% - 20px);
             text-align: center;
             background-color: #f9f9f9;
             padding: 20px;
@@ -144,73 +128,22 @@
         .feature-description {
             flex: 1;
         }
-
-        /* Additional styles for the Water Tracker section */
-        .water-tracker {
-            background-color: #66ccff;
-            color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        .water-tracker h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .water-tracker p {
-            font-size: 16px;
-        }
-
-        .tracker-form {
-            display: flex;
-            align-items: center;
-        }
-
-        .tracker-form label {
-            margin-right: 10px;
-        }
-
-        .tracker-form input[type="number"] {
-            width: 100px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        .tracker-form button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        /* Center align feature descriptions and buttons */
-        .feature-description {
-            text-align: center; /* Center-align the feature description */
-        }
-
-        .feature button {
-            margin: 0 auto; /* Center the button horizontally */
-        }
     </style>
 </head>
 <body>
+    
     <header>
-       
-        <h1>Save Water</h1>
+        <h1 data-text="Save Water">Save Water</h1>
         <p>Together, let's conserve our most precious resource.</p>
+        
+      
     </header>
 
     <div class="container">
         <section>
             <h2>Why Save Water?</h2>
-            <p>
-                Water is essential for life and the environment. By conserving water, we can protect ecosystems, reduce energy consumption, and ensure a sustainable future for all.
-            </p>
+            <p> Water is essential for life and the environment. By conserving water, we can protect ecosystems, reduce energy consumption, and ensure a sustainable future for all.</p>
+            
         </section>
 
         <!-- Feature container for aligning features side by side -->
@@ -225,6 +158,7 @@
                 </button>
             </div>
 
+            <!-- Add the remaining feature sections -->
             <div class="feature">
                 <button onclick="window.location.href='crowdwork.html';">
                     <div class="feature-icon">🌊</div>
@@ -274,20 +208,23 @@
                     </div>
                 </button>
             </div>
-        </div>
-        <div class="feature">
-            <button onclick="window.location.href='map.html';">
-                <div class="feature-icon"> 🏞️ </div>
-                <div class="feature-description">
-                    <h3>Water-Stressed Regions and Projects in India</h3>
-                    <p> water-stressed regions and water-saving projects across India.</p>
-                </div>
-            </button>
-        </div>
-    </div>
-        <!-- End of feature container -->
 
-        <!-- Additional sections and content can go here -->
+            <div class="feature">
+                <button onclick="window.location.href='map.html';">
+                    <div class="feature-icon"> 🏞️ </div>
+                    <div class="feature-description">
+                        <h3>Water-Stressed Regions and Projects in India</h3>
+                        <p>Water-stressed regions and water-saving projects across India.</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <!-- End of feature container -->
+        <video autoplay muted loop id="bg-video">
+            <source src="videobackground2.mp4" type="video/mp4">
+            <!-- Include additional source elements for different formats if needed -->
+            Your browser does not support the video tag.
+        </video>
     </div>
 </body>
 </html>
