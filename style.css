@@ -3,6 +3,24 @@ body, h1, h2, p {
     margin: 0;
     padding: 0;
 }
+/* Add this CSS for the doodle emoji animation */
+.doodle-emoji {
+    font-size: 36px;
+    position: absolute;
+    top: 50%;
+    left: -50px; /* Initial position outside the viewport */
+    animation: moveDoodle 5s linear infinite;
+}
+
+@keyframes moveDoodle {
+    0% {
+        transform: translateX(-100%); /* Start off-screen to the left */
+    }
+    100% {
+        transform: translateX(100%); /* Move off-screen to the right */
+    }
+}
+
 
 /* Style the header */
 header {
